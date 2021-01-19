@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.marsrealestate.databinding.GridViewItemBinding
+import com.example.android.marsrealestate.databinding.ListViewItemBinding
 import com.example.android.marsrealestate.network.MarsProperty
 import com.squareup.moshi.Json
 
@@ -38,7 +39,7 @@ class PhotoGridAdapter( private val onClickListener: OnClickListener) :
      * The MarsPropertyViewHolder constructor takes the binding variable from the associated
      * GridViewItem, which nicely gives it access to the full [MarsProperty] information.
      */
-    class MarsPropertyViewHolder(private var binding: GridViewItemBinding):
+    class MarsPropertyViewHolder(private var binding: ListViewItemBinding):
             RecyclerView.ViewHolder(binding.root) {
         fun bind(marsProperty: MarsProperty) {
             binding.property = marsProperty
@@ -67,7 +68,7 @@ class PhotoGridAdapter( private val onClickListener: OnClickListener) :
      */
     override fun onCreateViewHolder(parent: ViewGroup,
                                     viewType: Int): MarsPropertyViewHolder {
-        return MarsPropertyViewHolder(GridViewItemBinding.inflate(LayoutInflater.from(parent.context)))
+        return MarsPropertyViewHolder(ListViewItemBinding.inflate(LayoutInflater.from(parent.context)))
     }
 
     /**
