@@ -17,9 +17,11 @@
   ~
   -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.android.marsrealestate">
+    package="com.example.android.marsrealestate"
+    xmlns:dist="http://schemas.android.com/apk/distribution">
 
     <!-- In order for our app to access the Internet, we need to define this permission. -->
+    <dist:module dist:instant="true" />
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application

@@ -22,10 +22,10 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <import type="android.view.View"/>
+        <import type="com.example.android.marsrealestate.overview.OverviewViewModel"/>
         <variable
             name="property"
             type="com.example.android.marsrealestate.network.MarsProperty"/>
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -64,7 +64,7 @@
             android:id="@+id/property_type_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{property.rental?@string/display_type(@string/type_rent):@string/display_type(@string/type_sale)}"
+            android:text="@{OverviewViewModel.displayPropertyType(property)}"
             android:textColor="#de000000"
             android:textSize="39sp"
             app:layout_constraintStart_toEndOf="@+id/mars_image"
@@ -75,7 +75,7 @@
             android:id="@+id/price_value_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{property.rental?@string/display_price_monthly_rental(property.price):@string/display_price(property.price)}"
+            android:text="@{OverviewViewModel.displayPropertyPrice(property)}"
             android:textColor="#de000000"
             android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/mars_image"

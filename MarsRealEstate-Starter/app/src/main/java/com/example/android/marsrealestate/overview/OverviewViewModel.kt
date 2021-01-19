@@ -17,14 +17,11 @@
 
 package com.example.android.marsrealestate.overview
 
-import android.os.Parcelable
 import androidx.lifecycle.*
 import com.example.android.marsrealestate.R
 import com.example.android.marsrealestate.network.MarsApi
-import com.example.android.marsrealestate.network.MarsApi.retrofitService
 import com.example.android.marsrealestate.network.MarsApiFilter
 import com.example.android.marsrealestate.network.MarsProperty
-import com.squareup.moshi.Json
 import kotlinx.coroutines.launch
 
 enum class MarsApiStatus { LOADING, ERROR, DONE }
@@ -87,4 +84,23 @@ class OverviewViewModel : ViewModel() {
         _navigateToSelectProperty.value = null
     }
 
+    fun displayPropertyType(marsProperty: MarsProperty): String {
+        val s : String = "R.string.display_type"
+
+        return when(marsProperty.isRental) {
+            true -> s.format(R.string.type_rent)
+            false -> s.format(R.string.type_sale)
+        }
+    }
+
+    fun displayPropertyPrice(marsProperty: MarsProperty) : String {
+        val s1 : String = "R.string.display_price"
+        val s2 : String = "R.string.display_price_monthly_rental"
+
+        return when (marsProperty.isRental) {
+            true -> s2.format(marsProperty.price)
+            false -> s1.format(marsProperty.price)
+        }
+    }
 }
+
