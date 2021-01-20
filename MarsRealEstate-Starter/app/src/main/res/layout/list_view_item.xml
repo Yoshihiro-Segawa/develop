@@ -22,7 +22,6 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <import type="android.view.View"/>
-        <import type="com.example.android.marsrealestate.overview.OverviewViewModel"/>
         <variable
             name="property"
             type="com.example.android.marsrealestate.network.MarsProperty"/>
@@ -64,7 +63,7 @@
             android:id="@+id/property_type_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{OverviewViewModel.displayPropertyType(property)}"
+            android:text="@{property.displayPropertyType()}"
             android:textColor="#de000000"
             android:textSize="39sp"
             app:layout_constraintStart_toEndOf="@+id/mars_image"
@@ -75,7 +74,7 @@
             android:id="@+id/price_value_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{OverviewViewModel.displayPropertyPrice(property)}"
+            android:text="@{property.displayPropertyPrice()}"
             android:textColor="#de000000"
             android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/mars_image"
