@@ -17,10 +17,14 @@
 
 package com.example.android.marsrealestate.network
 
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Call
 import retrofit2.Retrofit
+import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
-import retrofit2.http.GET
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.*
 
 private const val BASE_URL = "https://api.nasa.gov/planetary/apod/"
 //private const val BASE_URL = "https://api.nasa.gov/techport/api/specification/"
@@ -28,14 +32,45 @@ private const val BASE_URL = "https://api.nasa.gov/planetary/apod/"
 //private const val BASE_URL = "https://api.nasa.gov/insight_weather/"
 //private const val BASE_URL = "http://api.openweathermap.org/data/2.5/weather/"
 
-
+/**
+ * Build the Moshi object that Retrofit will be using, making sure to add the Kotlin adapter for
+ * full Kotlin compatibility.
+ */
+/* moshiは使わない */
+/*
+private val moshi = Moshi.Builder()
+        .add(KotlinJsonAdapterFactory())
+        .build()
+*/
+/**
+ * Use the Retrofit builder to build a retrofit object using a Moshi converter with our Moshi
+ * object.
+ */
+/*
+private val retrofit = Retrofit.Builder()
+        .addConverterFactory(MoshiConverterFactory.create(moshi))
+        .baseUrl(BASE_URL)
+        .build()
+*/
+/*
 private val retrofit = Retrofit.Builder()
         .addConverterFactory(ScalarsConverterFactory.create())
         .baseUrl(BASE_URL)
         .build()
 
+ */
+/* 当面 GSON でパースする */
+private val retrofit = Retrofit.Builder()
+        .addConverterFactory(GsonConverterFactory.create())
+        .baseUrl(BASE_URL)
+        .build()
+
 interface MarsApiService {
     /*  BASE_URLに対してのリクエストを＠GETで送信 */
+    @GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2")
+    fun getProperty():
+            Call<MarsProperty>?
+
     @GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&count=2")
     //@GET("?api_key=DEMO_KEY")
     //@GET("realestate")
@@ -43,7 +78,8 @@ interface MarsApiService {
     //@GET("?q=London,uk&APPID=bd2cc82bac421b5e74979f0bc521d9e2")
 
     fun getProperties():
-            Call<String>
+            Call<MutableList<MarsProperty>>?
+
 }
 
 object MarsApi {

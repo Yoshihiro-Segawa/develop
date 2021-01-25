@@ -17,4 +17,17 @@
 
 package com.example.android.marsrealestate.network
 
-class MarsProperty()
+/*　この構造体でパースする */
+
+class MarsProperty(
+    var copyright: String,
+    var date: String,
+    var explanation: String,
+    var hdurl: String,
+    var media_type: String,
+    var service_version: String,
+    var title: String,
+    var url: String) {
+        fun to_s(): String = "${copyright} ${date} ${title} ${url}"
+    }
+
