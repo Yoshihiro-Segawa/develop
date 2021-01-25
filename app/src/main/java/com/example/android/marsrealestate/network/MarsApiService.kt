@@ -67,7 +67,7 @@ private val retrofit = Retrofit.Builder()
 
 interface MarsApiService {
     /*  BASE_URLに対してのリクエストを＠GETで送信 */
-    @GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2")
+    @GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&count")
     fun getProperty():
             Call<MarsProperty>?
 
