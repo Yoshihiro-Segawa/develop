@@ -17,10 +17,14 @@
 
 package com.example.android.marsrealestate.overview
 
+import android.nfc.Tag
+import android.util.Log
+import androidx.constraintlayout.widget.Constraints.TAG
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.android.marsrealestate.network.MarsApi
+import com.google.android.material.tabs.TabLayout
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
