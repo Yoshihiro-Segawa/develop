@@ -17,4 +17,72 @@
 
 package com.example.android.marsrealestate.overview
 
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
+import com.example.android.marsrealestate.databinding.ListViewItemBinding
+import com.example.android.marsrealestate.network.NasaProperty
 
+/**
+ * This class implements a [RecyclerView] [ListAdapter] which uses Data Binding to present [List]
+ * data, including computing diffs between lists.
+ */
+class PhotoGridAdapter( private val onClickListener: OnClickListener) :
+        ListAdapter<NasaProperty,
+                PhotoGridAdapter.MarsPropertyViewHolder>(DiffCallback) {
+
+    /**
+     * The MarsPropertyViewHolder constructor takes the binding variable from the associated
+     * GridViewItem, which nicely gives it access to the full [MarsProperty] information.
+     */
+    class MarsPropertyViewHolder(private var binding: ListViewItemBinding):
+            RecyclerView.ViewHolder(binding.root) {
+        fun bind(nasaProperty: NasaProperty) {
+            binding.property = nasaProperty
+            // This is important, because it forces the data binding to execute immediately,
+            // which allows the RecyclerView to make the correct view size measurements
+            binding.executePendingBindings()
+        }
+    }
+
+    /**
+     * Allows the RecyclerView to determine which items have changed when the [List] of [MarsProperty]
+     * has been updated.
+     */
+    companion object DiffCallback : DiffUtil.ItemCallback<NasaProperty>() {
+        override fun areItemsTheSame(oldItem: NasaProperty, newItem: NasaProperty): Boolean {
+            return oldItem === newItem
+        }
+
+        override fun areContentsTheSame(oldItem: NasaProperty, newItem: NasaProperty): Boolean {
+            return oldItem.date == newItem.date
+        }
+    }
+
+    /**
+     * Create new [RecyclerView] item views (invoked by the layout manager)
+     */
+    override fun onCreateViewHolder(parent: ViewGroup,
+                                    viewType: Int): MarsPropertyViewHolder {
+        return MarsPropertyViewHolder(ListViewItemBinding.inflate(LayoutInflater.from(parent.context)))
+    }
+
+    /**
+     * Replaces the contents of a view (invoked by the layout manager)
+     */
+    override fun onBindViewHolder(holder: MarsPropertyViewHolder, position: Int) {
+        val nasaProperty = getItem(position)
+        holder.itemView.setOnClickListener{
+            onClickListener.onClick(nasaProperty)
+        }
+        holder.bind(nasaProperty)
+    }
+
+    class OnClickListener(val clickListener: (marsProperty:NasaProperty) -> Unit) {
+        fun onClick(nasaProperty: NasaProperty) = clickListener(nasaProperty)
+    }
+
+
+}

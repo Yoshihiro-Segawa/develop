@@ -77,23 +77,25 @@ private val retrofit = Retrofit.Builder()
 
 interface MarsApiService {
     /*  BASE_URLに対してのリクエストを＠GETで送信 */
+    /*
     @GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&date=2021-01-19")
     //@GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&count=1")
     fun getProperty():
             Call<NasaProperty>?
 
-    @GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&count=1")
+     */
+    @GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&date=2021-01-19")
+    //@GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&count=1")
+    suspend fun getProperties(): List<NasaProperty>
     //@GET("?api_key=DEMO_KEY")
     //@GET("realestate")
     //@GET("?api_key=DEMO_KEY&feedtype=json&ver=1.0")
     //@GET("?q=London,uk&APPID=bd2cc82bac421b5e74979f0bc521d9e2")
 
-    fun getProperties():
-            Call<MutableList<NasaProperty>>?
+
 
 }
 
 object MarsApi {
-    val retrofitService : MarsApiService by lazy {
-        retrofit.create(MarsApiService::class.java) }
+    val retrofitService : MarsApiService by lazy { retrofit.create(MarsApiService::class.java) }
 }

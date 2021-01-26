@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="property"
+            type="com.example.android.marsrealestate.network.NasaProperty"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="170dp">
+
+        <ImageView
+            android:id="@+id/mars_image"
+            android:layout_width="190dp"
+            android:layout_height="170dp"
+            android:adjustViewBounds="true"
+            android:padding="2dp"
+            android:scaleType="centerCrop"
+            app:imageUrl="@{property.url}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <TextView
+            android:id="@+id/property_type_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{property.date}"
+            android:textColor="#de000000"
+            android:textSize="39sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/mars_image"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="To Rent" />
+
+        <TextView
+            android:id="@+id/price_value_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{property.title}"
+            android:textColor="#de000000"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/mars_image"
+            app:layout_constraintTop_toBottomOf="@+id/property_type_text"
+            tools:text="$100,000" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -32,6 +32,33 @@
         android:layout_height="match_parent"
         tools:context="com.example.android.marsrealestate.MainActivity">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/photos_grid"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="6dp"
+            android:clipToPadding="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:listData="@{viewModel.properties}"
+            app:spanCount="2"
+            tools:itemCount="16"
+            tools:listitem="@layout/list_view_item" />
+
+        <!--
+        <ImageView
+            android:id="@+id/status_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:marsApiStatus="@{viewModel.status}" />
+
         <ImageView
             android:id="@+id/mars_image"
             android:layout_width="190dp"
@@ -71,7 +98,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-        <!--
+
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
@@ -79,7 +106,7 @@
             android:text="@{viewModel.response.hdurl}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
-            -->
+
 
         <TextView
             android:id="@+id/textView5"
@@ -111,7 +138,7 @@
             android:text="@{viewModel.response.explanation}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
+        -->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
