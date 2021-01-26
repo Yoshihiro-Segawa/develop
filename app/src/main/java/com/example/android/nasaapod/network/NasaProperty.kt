@@ -15,19 +15,19 @@
  *
  */
 
-package com.example.android.marsrealestate
+package com.example.android.nasaapod.network
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+/*　この構造体でパースする */
 
-class MainActivity : AppCompatActivity() {
-
-    /**
-     * Our MainActivity is only responsible for setting the content view that contains the
-     * Navigation Host.
-     */
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+data class NasaProperty(
+    var copyright: String?,
+    var date: String,
+    var explanation: String,
+    var hdurl: String,
+    var media_type: String,
+    var service_version: String,
+    var title: String,
+    var url: String) {
+        fun to_s(): String = "${date} ${title} ${url}"
     }
-}
+

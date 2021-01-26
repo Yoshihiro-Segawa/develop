@@ -14,12 +14,12 @@
  *  limitations under the License.
  */
 
-package com.example.android.marsrealestate.detail
+package com.example.android.nasaapod.detail
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
-import com.example.android.marsrealestate.network.NasaProperty
+import com.example.android.nasaapod.network.NasaProperty
 
 /**
  * The [ViewModel] that is associated with the [DetailFragment].

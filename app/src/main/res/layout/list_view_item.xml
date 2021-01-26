@@ -6,7 +6,7 @@
         <import type="android.view.View"/>
         <variable
             name="property"
-            type="com.example.android.marsrealestate.network.NasaProperty"/>
+            type="com.example.android.nasaapod.network.NasaProperty"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

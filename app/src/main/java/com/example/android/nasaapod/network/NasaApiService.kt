@@ -15,22 +15,14 @@
  *
  */
 
-package com.example.android.marsrealestate.network
+package com.example.android.nasaapod.network
 
 import retrofit2.Call
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
-import com.google.gson.*
-import com.google.gson.reflect.TypeToken
-import com.google.gson.stream.JsonReader
-import com.google.gson.stream.JsonWriter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
-import kotlin.jvm.internal.Reflection
-import kotlin.reflect.KClass
-import kotlin.reflect.full.memberProperties
 
 private const val BASE_URL = "https://api.nasa.gov/planetary/apod/"
 //private const val BASE_URL = "https://api.nasa.gov/techport/api/specification/"
@@ -75,27 +67,24 @@ private val retrofit = Retrofit.Builder()
 
  */
 
-interface MarsApiService {
+interface NasaApiService {
     /*  BASE_URLに対してのリクエストを＠GETで送信 */
-    /*
-    @GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&date=2021-01-19")
-    //@GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&count=1")
-    fun getProperty():
-            Call<NasaProperty>?
 
-     */
     @GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&date=2021-01-19")
     //@GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&count=1")
-    suspend fun getProperties(): List<NasaProperty>
+    fun getProperty(): Call<NasaProperty>?
+
+
+    @GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&start_date=2021-01-15")
+    //@GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&date=2021-01-19")
+    //@GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&count=1")
+    fun getProperties(): List<NasaProperty>?
     //@GET("?api_key=DEMO_KEY")
     //@GET("realestate")
     //@GET("?api_key=DEMO_KEY&feedtype=json&ver=1.0")
     //@GET("?q=London,uk&APPID=bd2cc82bac421b5e74979f0bc521d9e2")
-
-
-
 }
 
-object MarsApi {
-    val retrofitService : MarsApiService by lazy { retrofit.create(MarsApiService::class.java) }
+object NasaApi {
+    val RETROFIT_SERVICE : NasaApiService by lazy { retrofit.create(NasaApiService::class.java) }
 }

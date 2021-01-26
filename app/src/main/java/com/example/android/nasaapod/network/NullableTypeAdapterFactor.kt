@@ -1,4 +1,4 @@
-package com.example.android.marsrealestate.network
+package com.example.android.nasaapod.network
 
 import com.google.gson.*
 import com.google.gson.reflect.TypeToken

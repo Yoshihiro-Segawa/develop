@@ -14,14 +14,14 @@
  *  limitations under the License.
  */
 
-package com.example.android.marsrealestate.detail
+package com.example.android.nasaapod.detail
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.android.marsrealestate.databinding.FragmentDetailBinding
+import com.example.android.nasaapod.databinding.FragmentDetailBinding
 
 /**
  * This [Fragment] will show the detailed information about a selected piece of Mars real estate.

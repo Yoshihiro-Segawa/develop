@@ -15,20 +15,15 @@
  *
  */
 
-package com.example.android.marsrealestate.overview
+package com.example.android.nasaapod.overview
 
-import android.content.ContentValues.TAG
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.android.marsrealestate.network.MarsApi
-import com.example.android.marsrealestate.network.NasaProperty
+import com.example.android.nasaapod.network.NasaApi
+import com.example.android.nasaapod.network.NasaProperty
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import java.lang.Exception
 
 /**
@@ -52,37 +47,42 @@ class OverviewViewModel : ViewModel() {
      * Call getMarsRealEstateProperties() on init so we can display status immediately.
      */
     init {
-        //getMarsRealEstateProperty()
-        getMarsRealEstateProperties()
+        //getNasaApodProperty()
+        getNasaApodProperties()
     }
 
     /**
      * Sets the value of the status LiveData to the Mars API status.
      */
     /*
-    private fun getMarsRealEstateProperty() {
-        MarsApi.retrofitService.getProperty()?.enqueue(
+    private fun getNasaApodProperty() {
+        NasaApi.retrofitService.getProperty()?.enqueue(
                 object: Callback<NasaProperty> {
-                    override fun onResponse(call: Call<NasaProperty>?, response: Response<NasaProperty>) {
+                    override fun onResponse(call: Call<Array<NasaProperty>>?, response: Response<Array<NasaProperty>>) {
                         _response.value = response.body()
                     }
 
                     override fun onFailure(call: Call<NasaProperty>, t: Throwable) {
                         //_response.value = "Failure: " + t.message
+                        Log.println(3, "err", "message")
                     }
                 })
     }
 
      */
 
+
+
+
+
     /**
      * Sets the value of the status LiveData to the Mars API status.
      */
 
-    private fun getMarsRealEstateProperties() {
+    private fun getNasaApodProperties() {
         viewModelScope.launch {
             try {
-                _properties.value = MarsApi.retrofitService.getProperties()
+                _properties.value = NasaApi.RETROFIT_SERVICE.getProperties()
             } catch (e: Exception) {
 
             }
@@ -91,3 +91,4 @@ class OverviewViewModel : ViewModel() {
 
 
 }
+
