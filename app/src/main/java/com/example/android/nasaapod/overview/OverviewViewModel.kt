@@ -17,12 +17,17 @@
 
 package com.example.android.nasaapod.overview
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.android.nasaapod.network.NasaApi
 import com.example.android.nasaapod.network.NasaProperty
+import com.example.android.nasaapod.network.listAdapter
+import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.Types
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
@@ -82,11 +87,17 @@ class OverviewViewModel : ViewModel() {
     private fun getNasaApodProperties() {
         viewModelScope.launch {
             try {
-                _properties.value = NasaApi.RETROFIT_SERVICE.getProperties()
+
+                //_properties.value = listAdapter.fromJson(NasaApi.RETROFIT_SERVICE.getProperties())
+                //val listObject = NasaApi.RETROFIT_SERVICE.getProperties()
+                val listObject = listAdapter.toJson(NasaApi.RETROFIT_SERVICE.getProperties())
+
+                Log.d("JSON","JSON->リストに格納されたクラス ${listObject} ")
             } catch (e: Exception) {
 
             }
         }
+
     }
 
 

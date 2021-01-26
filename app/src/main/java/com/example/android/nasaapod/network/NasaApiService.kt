@@ -17,10 +17,12 @@
 
 package com.example.android.nasaapod.network
 
+import com.squareup.moshi.JsonAdapter
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.http.*
 import com.squareup.moshi.Moshi
+import com.squareup.moshi.Types
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 
@@ -39,6 +41,9 @@ private const val BASE_URL = "https://api.nasa.gov/planetary/apod/"
 private val moshi = Moshi.Builder()
         .add(KotlinJsonAdapterFactory())
         .build()
+
+val type = Types.newParameterizedType(List::class.java, NasaProperty::class.java)
+val listAdapter: JsonAdapter<List<NasaProperty>> = moshi.adapter(type)
 
 /**
  * Use the Retrofit builder to build a retrofit object using a Moshi converter with our Moshi
