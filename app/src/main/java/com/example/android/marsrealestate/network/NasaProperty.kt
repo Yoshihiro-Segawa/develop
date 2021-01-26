@@ -19,8 +19,8 @@ package com.example.android.marsrealestate.network
 
 /*　この構造体でパースする */
 
-class MarsProperty(
-    var copyright: String,
+class NasaProperty(
+    var copyright: String?,
     var date: String,
     var explanation: String,
     var hdurl: String,
@@ -28,6 +28,6 @@ class MarsProperty(
     var service_version: String,
     var title: String,
     var url: String) {
-        fun to_s(): String = "${copyright} ${date} ${title} ${url}"
+        fun to_s(): String = "${date} ${title} ${url}"
     }
 

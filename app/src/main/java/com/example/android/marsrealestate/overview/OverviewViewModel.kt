@@ -17,21 +17,14 @@
 
 package com.example.android.marsrealestate.overview
 
-import android.nfc.Tag
-import android.util.Log
-import androidx.constraintlayout.widget.Constraints.TAG
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.android.marsrealestate.network.MarsApi
-import com.example.android.marsrealestate.network.MarsProperty
-import com.google.android.material.tabs.TabLayout
+import com.example.android.marsrealestate.network.NasaProperty
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.http.*
-import retrofit2.converter.gson.GsonConverterFactory
 
 /**
  * The [ViewModel] that is attached to the [OverviewFragment].
@@ -39,10 +32,10 @@ import retrofit2.converter.gson.GsonConverterFactory
 class OverviewViewModel : ViewModel() {
 
     // The internal MutableLiveData String that stores the most recent response
-    private val _response = MutableLiveData<MarsProperty>()
+    private val _response = MutableLiveData<NasaProperty>()
 
     // The external immutable LiveData for the response String
-    val response: LiveData<MarsProperty>
+    val response: LiveData<NasaProperty>
         get() = _response
 
     /**
@@ -58,12 +51,12 @@ class OverviewViewModel : ViewModel() {
      */
     private fun getMarsRealEstateProperty() {
         MarsApi.retrofitService.getProperty()?.enqueue(
-                object: Callback<MarsProperty> {
-                    override fun onResponse(call: Call<MarsProperty>?, response: Response<MarsProperty>) {
+                object: Callback<NasaProperty> {
+                    override fun onResponse(call: Call<NasaProperty>?, response: Response<NasaProperty>) {
                         _response.value = response.body()
                     }
 
-                    override fun onFailure(call: Call<MarsProperty>, t: Throwable) {
+                    override fun onFailure(call: Call<NasaProperty>, t: Throwable) {
                         //_response.value = "Failure: " + t.message
                     }
                 })

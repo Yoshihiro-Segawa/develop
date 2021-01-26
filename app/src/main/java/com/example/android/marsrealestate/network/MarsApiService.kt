@@ -17,14 +17,20 @@
 
 package com.example.android.marsrealestate.network
 
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Call
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
-import retrofit2.converter.scalars.ScalarsConverterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
+import com.google.gson.*
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
+import kotlin.jvm.internal.Reflection
+import kotlin.reflect.KClass
+import kotlin.reflect.full.memberProperties
 
 private const val BASE_URL = "https://api.nasa.gov/planetary/apod/"
 //private const val BASE_URL = "https://api.nasa.gov/techport/api/specification/"
@@ -36,22 +42,22 @@ private const val BASE_URL = "https://api.nasa.gov/planetary/apod/"
  * Build the Moshi object that Retrofit will be using, making sure to add the Kotlin adapter for
  * full Kotlin compatibility.
  */
-/* moshiは使わない */
-/*
+/* moshiでも動くね */
+
 private val moshi = Moshi.Builder()
         .add(KotlinJsonAdapterFactory())
         .build()
-*/
+
 /**
  * Use the Retrofit builder to build a retrofit object using a Moshi converter with our Moshi
  * object.
  */
-/*
+
 private val retrofit = Retrofit.Builder()
         .addConverterFactory(MoshiConverterFactory.create(moshi))
         .baseUrl(BASE_URL)
         .build()
-*/
+
 /*
 private val retrofit = Retrofit.Builder()
         .addConverterFactory(ScalarsConverterFactory.create())
@@ -59,26 +65,31 @@ private val retrofit = Retrofit.Builder()
         .build()
 
  */
+
 /* 当面 GSON でパースする */
+/*
 private val retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
         .baseUrl(BASE_URL)
         .build()
 
+ */
+
 interface MarsApiService {
     /*  BASE_URLに対してのリクエストを＠GETで送信 */
-    @GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&count")
+    @GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&date=2021-01-19")
+    //@GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&count=1")
     fun getProperty():
-            Call<MarsProperty>?
+            Call<NasaProperty>?
 
-    @GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&count=2")
+    @GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&count=1")
     //@GET("?api_key=DEMO_KEY")
     //@GET("realestate")
     //@GET("?api_key=DEMO_KEY&feedtype=json&ver=1.0")
     //@GET("?q=London,uk&APPID=bd2cc82bac421b5e74979f0bc521d9e2")
 
     fun getProperties():
-            Call<MutableList<MarsProperty>>?
+            Call<MutableList<NasaProperty>>?
 
 }
 
