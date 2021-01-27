@@ -24,12 +24,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.android.nasaapod.network.NasaApi
 import com.example.android.nasaapod.network.NasaProperty
-import com.example.android.nasaapod.network.listAdapter
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
 import kotlinx.coroutines.launch
 import java.lang.Exception
+
+enum class NasaApiStatus { LOADING, ERROR, DONE }
 
 /**
  * The [ViewModel] that is attached to the [OverviewFragment].
@@ -37,11 +38,11 @@ import java.lang.Exception
 class OverviewViewModel : ViewModel() {
 
     // The internal MutableLiveData String that stores the most recent response
-    private val _response = MutableLiveData<NasaProperty>()
+    private val _status = MutableLiveData<NasaProperty>()
 
     // The external immutable LiveData for the response String
-    val response: LiveData<NasaProperty>
-        get() = _response
+    val status: LiveData<NasaProperty>
+        get() = _status
 
     private val _properties = MutableLiveData<List<NasaProperty>>()
 
@@ -76,24 +77,19 @@ class OverviewViewModel : ViewModel() {
 
      */
 
-
-
-
-
     /**
      * Sets the value of the status LiveData to the Mars API status.
      */
-
     private fun getNasaApodProperties() {
         viewModelScope.launch {
+            _status.value = NasaApiStatus.LOADING
             try {
+                _properties.value = NasaApi.retrofitService.getProperties()
+                _status.value = NasaApiStatus.DONE
 
-                //_properties.value = listAdapter.fromJson(NasaApi.RETROFIT_SERVICE.getProperties())
-                //val listObject = NasaApi.RETROFIT_SERVICE.getProperties()
-                val listObject = listAdapter.toJson(NasaApi.RETROFIT_SERVICE.getProperties())
-
-                Log.d("JSON","JSON->リストに格納されたクラス ${listObject} ")
+                Log.d("JSON","JSON->リストに格納されたクラス ${_properties.value} ")
             } catch (e: Exception) {
+                _status.value = NasaApiStatus.ERROR
 
             }
         }

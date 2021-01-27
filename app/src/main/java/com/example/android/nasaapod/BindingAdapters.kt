@@ -17,6 +17,7 @@
 
 package com.example.android.nasaapod
 
+import android.view.PixelCopy.request
 import android.widget.ImageView
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
@@ -29,11 +30,13 @@ import com.example.android.nasaapod.overview.PhotoGridAdapter
 /**
  * When there is no Mars property data (data is null), hide the [RecyclerView], otherwise show it.
  */
+
 @BindingAdapter("listData")
 fun bindRecyclerView(recyclerView: RecyclerView, data: List<NasaProperty>?) {
     val adapter = recyclerView.adapter as PhotoGridAdapter
     adapter.submitList(data)
 }
+
 
 /**
  * Uses the Glide library to load an image by URL into an [ImageView]

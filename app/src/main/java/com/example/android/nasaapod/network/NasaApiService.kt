@@ -42,9 +42,6 @@ private val moshi = Moshi.Builder()
         .add(KotlinJsonAdapterFactory())
         .build()
 
-val type = Types.newParameterizedType(List::class.java, NasaProperty::class.java)
-val listAdapter: JsonAdapter<List<NasaProperty>> = moshi.adapter(type)
-
 /**
  * Use the Retrofit builder to build a retrofit object using a Moshi converter with our Moshi
  * object.
@@ -83,7 +80,7 @@ interface NasaApiService {
     @GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&start_date=2021-01-15")
     //@GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&date=2021-01-19")
     //@GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&count=1")
-    fun getProperties(): List<NasaProperty>?
+    suspend fun getProperties(): List<NasaProperty>?
     //@GET("?api_key=DEMO_KEY")
     //@GET("realestate")
     //@GET("?api_key=DEMO_KEY&feedtype=json&ver=1.0")
@@ -91,5 +88,5 @@ interface NasaApiService {
 }
 
 object NasaApi {
-    val RETROFIT_SERVICE : NasaApiService by lazy { retrofit.create(NasaApiService::class.java) }
+    val retrofitService : NasaApiService by lazy { retrofit.create(NasaApiService::class.java) }
 }

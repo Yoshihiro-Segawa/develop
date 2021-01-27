@@ -17,8 +17,11 @@
 
 package com.example.android.nasaapod.network
 
-/*　この構造体でパースする */
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 
+/*　この構造体でパースする */
+@Parcelize
 data class NasaProperty(
     var copyright: String?,
     var date: String,
@@ -27,7 +30,7 @@ data class NasaProperty(
     var media_type: String,
     var service_version: String,
     var title: String,
-    var url: String) {
+    var url: String) : Parcelable {
         fun to_s(): String = "${date} ${title} ${url}"
     }
 
