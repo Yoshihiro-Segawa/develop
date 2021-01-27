@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/overviewFragment"
-        android:name="com.example.android.marsrealestate.overview.OverviewFragment"
+        android:name="com.example.android.nasaapod.overview.OverviewFragment"
         android:label="fragment_overview"
         tools:layout="@layout/fragment_overview" >
         <action
@@ -35,12 +35,9 @@
 
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.example.android.marsrealestate.detail.DetailFragment"
+        android:name="com.example.android.nasaapod.detail.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail">
-        <argument
-            android:name="selectedProperty"
-            app:argType="com.example.android.marsrealestate.network.MarsProperty"/>
     </fragment>
 
 </navigation>
