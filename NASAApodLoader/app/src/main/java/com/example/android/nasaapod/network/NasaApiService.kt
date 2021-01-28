@@ -26,6 +26,12 @@ import com.squareup.moshi.Types
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 
+enum class NasaApiFilter(val value: String) {
+    SHOW_IMAGE("&media_type=image"),
+    SHOW_VIDEO("&media_type=video"),
+    SHOW_ALL("")
+}
+
 private const val BASE_URL = "https://api.nasa.gov/planetary/apod/"
 //private const val BASE_URL = "https://api.nasa.gov/techport/api/specification/"
 //private const val BASE_URL = "https://android-kotlin-fun-mars-server.appspot.com"
@@ -77,7 +83,7 @@ interface NasaApiService {
     fun getProperty(): Call<NasaProperty>?
 
 
-    @GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&start_date=2020-12-15")
+    @GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&start_date=2020-11-15")
     //@GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&date=2021-01-19")
     //@GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&count=1")
     suspend fun getProperties(): List<NasaProperty>?

@@ -59,7 +59,7 @@ class OverviewViewModel : ViewModel() {
      */
     init {
         //getNasaApodProperty()
-        getNasaApodProperties()
+        getNasaApodProperties(NasaApiFilter.SHOW_ALL)
     }
 
     /**
@@ -84,7 +84,7 @@ class OverviewViewModel : ViewModel() {
     /**
      * Sets the value of the status LiveData to the Mars API status.
      */
-    private fun getNasaApodProperties() {
+    private fun getNasaApodProperties(filter: NasaApiFilter) {
         viewModelScope.launch {
             _status.value = NasaApiStatus.LOADING
             try {
@@ -101,7 +101,7 @@ class OverviewViewModel : ViewModel() {
     }
 
     fun updateFilter(filter: NasaApiFilter) {
-        getNasaApodProperties()
+        getNasaApodProperties(NasaApiFilter.SHOW_ALL)
     }
 
     fun displayPropertyDetails(nasaProperty: NasaProperty) {

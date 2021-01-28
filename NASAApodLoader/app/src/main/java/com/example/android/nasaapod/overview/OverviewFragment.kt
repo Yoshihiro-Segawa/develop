@@ -57,7 +57,6 @@ class OverviewFragment : Fragment() {
             viewModel.displayPropertyDetails(it)
         })
 
-        /*
         viewModel.navigateToSelectProperty.observe(this, Observer {
             if ( null != it) {
                 this.findNavController().navigate(
@@ -65,7 +64,6 @@ class OverviewFragment : Fragment() {
                 viewModel.displayPropertyDetailsComplete()
             }
         })
-        */
 
         setHasOptionsMenu(true)
         return binding.root
@@ -79,15 +77,15 @@ class OverviewFragment : Fragment() {
         super.onCreateOptionsMenu(menu, inflater)
     }
 
-    /*
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        viewModel.properties(
+        viewModel.updateFilter(
                 when (item.itemId) {
+                    R.id.show_image_menu -> NasaApiFilter.SHOW_IMAGE
+                    R.id.show_video_menu -> NasaApiFilter.SHOW_VIDEO
                     else -> NasaApiFilter.SHOW_ALL
                 }
         )
         return true
     }
-
-     */
 }
