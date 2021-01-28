@@ -38,10 +38,10 @@ enum class NasaApiStatus { LOADING, ERROR, DONE }
 class OverviewViewModel : ViewModel() {
 
     // The internal MutableLiveData String that stores the most recent response
-    private val _status = MutableLiveData<NasaProperty>()
+    private val _status = MutableLiveData<NasaApiStatus>()
 
     // The external immutable LiveData for the response String
-    val status: LiveData<NasaProperty>
+    val status: LiveData<NasaApiStatus>
         get() = _status
 
     private val _properties = MutableLiveData<List<NasaProperty>>()

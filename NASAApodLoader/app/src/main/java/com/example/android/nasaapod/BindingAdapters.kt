@@ -18,6 +18,7 @@
 package com.example.android.nasaapod
 
 import android.view.PixelCopy.request
+import android.view.View
 import android.widget.ImageView
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
@@ -25,6 +26,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.android.nasaapod.network.NasaProperty
+import com.example.android.nasaapod.overview.NasaApiStatus
 import com.example.android.nasaapod.overview.PhotoGridAdapter
 
 /**
@@ -79,5 +81,22 @@ fun bindStatus(statusImageView: ImageView, status: MarsApiStatus?) {
 }
 
  */
+
+@BindingAdapter("nasaApiStatus")
+fun bindStatus(statusImageView: ImageView, status: NasaApiStatus?) {
+    when (status) {
+        NasaApiStatus.LOADING -> {
+            statusImageView.visibility = View.VISIBLE
+            statusImageView.setImageResource(R.drawable.loading_animation)
+        }
+        NasaApiStatus.ERROR -> {
+            statusImageView.visibility = View.VISIBLE
+            statusImageView.setImageResource(R.drawable.ic_connection_error)
+        }
+        NasaApiStatus.DONE -> {
+            statusImageView.visibility = View.GONE
+        }
+    }
+}
 
 
