@@ -18,8 +18,8 @@
 <resources>
     <string name="app_name">NASA Astronomy Picture of the Day</string>
     <string name="show_all">Show all</string>
-    <string name="show_rent">Rent</string>
-    <string name="show_buy">Buy</string>
+    <string name="show_image">Image</string>
+    <string name="show_video">Video</string>
     <string name="type_rent">Rent</string>
     <string name="type_sale">Sale</string>
     <string name="display_type">For %s</string>

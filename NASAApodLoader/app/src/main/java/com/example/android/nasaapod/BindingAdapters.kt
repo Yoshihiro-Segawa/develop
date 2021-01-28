@@ -62,25 +62,6 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
  * displays a broken image to reflect the connection error.  When the request is finished, it
  * hides the image view.
  */
-/*
-@BindingAdapter("marsApiStatus")
-fun bindStatus(statusImageView: ImageView, status: MarsApiStatus?) {
-    when (status) {
-        MarsApiStatus.LOADING -> {
-            statusImageView.visibility = View.VISIBLE
-            statusImageView.setImageResource(R.drawable.loading_animation)
-        }
-        MarsApiStatus.ERROR -> {
-            statusImageView.visibility = View.VISIBLE
-            statusImageView.setImageResource(R.drawable.ic_connection_error)
-        }
-        MarsApiStatus.DONE -> {
-            statusImageView.visibility = View.GONE
-        }
-    }
-}
-
- */
 
 @BindingAdapter("nasaApiStatus")
 fun bindStatus(statusImageView: ImageView, status: NasaApiStatus?) {
@@ -98,5 +79,6 @@ fun bindStatus(statusImageView: ImageView, status: NasaApiStatus?) {
         }
     }
 }
+
 
 

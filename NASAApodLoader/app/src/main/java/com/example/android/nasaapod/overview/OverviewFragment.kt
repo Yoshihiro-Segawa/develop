@@ -20,9 +20,12 @@ package com.example.android.nasaapod.overview
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.android.nasaapod.R
 import com.example.android.nasaapod.databinding.FragmentOverviewBinding
+import com.example.android.nasaapod.network.NasaApiFilter
 
 /**
  * This fragment shows the the status of the Mars real-estate web services transaction.
@@ -50,6 +53,20 @@ class OverviewFragment : Fragment() {
         // Giving the binding access to the OverviewViewModel
         binding.viewModel = viewModel
 
+        binding.photosGrid.adapter = PhotoGridAdapter(PhotoGridAdapter.OnClickListener {
+            viewModel.displayPropertyDetails(it)
+        })
+
+        /*
+        viewModel.navigateToSelectProperty.observe(this, Observer {
+            if ( null != it) {
+                this.findNavController().navigate(
+                        OverviewFragmentDirections.actionShowDetail(it))
+                viewModel.displayPropertyDetailsComplete()
+            }
+        })
+        */
+
         setHasOptionsMenu(true)
         return binding.root
     }
@@ -61,4 +78,16 @@ class OverviewFragment : Fragment() {
         inflater.inflate(R.menu.overflow_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
+
+    /*
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        viewModel.properties(
+                when (item.itemId) {
+                    else -> NasaApiFilter.SHOW_ALL
+                }
+        )
+        return true
+    }
+
+     */
 }

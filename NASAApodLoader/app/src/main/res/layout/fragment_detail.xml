@@ -42,7 +42,7 @@
                 tools:src="@tools:sample/backgrounds/scenic" />
 
             <TextView
-                android:id="@+id/property_type_text"
+                android:id="@+id/property_date_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -53,14 +53,14 @@
                 tools:text="To Rent" />
 
             <TextView
-                android:id="@+id/price_value_text"
+                android:id="@+id/price_title_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:textColor="#de000000"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/property_type_text"
+                app:layout_constraintTop_toBottomOf="@+id/property_date_text"
                 tools:text="$100,000" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

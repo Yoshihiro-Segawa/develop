@@ -23,6 +23,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.android.nasaapod.network.NasaApi
+import com.example.android.nasaapod.network.NasaApiFilter
 import com.example.android.nasaapod.network.NasaProperty
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
@@ -49,6 +50,10 @@ class OverviewViewModel : ViewModel() {
     val properties: LiveData<List<NasaProperty>>
         get() = _properties
 
+    private val _navigateToSelectProperty = MutableLiveData<NasaProperty>()
+    val navigateToSelectProperty: LiveData<NasaProperty>
+        get() = _navigateToSelectProperty
+
     /**
      * Call getMarsRealEstateProperties() on init so we can display status immediately.
      */
@@ -69,12 +74,11 @@ class OverviewViewModel : ViewModel() {
                     }
 
                     override fun onFailure(call: Call<NasaProperty>, t: Throwable) {
-                        //_response.value = "Failure: " + t.message
+                        _response.value = "Failure: " + t.message
                         Log.println(3, "err", "message")
                     }
                 })
     }
-
      */
 
     /**
@@ -87,7 +91,7 @@ class OverviewViewModel : ViewModel() {
                 _properties.value = NasaApi.retrofitService.getProperties()
                 _status.value = NasaApiStatus.DONE
 
-                Log.d("JSON","JSON->リストに格納されたクラス ${_properties.value} ")
+                //Log.d("JSON","JSON->リストに格納されたクラス ${_properties.value} ")
             } catch (e: Exception) {
                 _status.value = NasaApiStatus.ERROR
 
@@ -96,6 +100,16 @@ class OverviewViewModel : ViewModel() {
 
     }
 
+    fun updateFilter(filter: NasaApiFilter) {
+        getNasaApodProperties()
+    }
 
+    fun displayPropertyDetails(nasaProperty: NasaProperty) {
+        _navigateToSelectProperty.value = nasaProperty
+    }
+
+    fun displayPropertyDetailsComplete() {
+        _navigateToSelectProperty.value = null
+    }
 }
 

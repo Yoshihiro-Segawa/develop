@@ -80,7 +80,7 @@ class PhotoGridAdapter( private val onClickListener: OnClickListener) :
         holder.bind(nasaProperty)
     }
 
-    class OnClickListener(val clickListener: (marsProperty:NasaProperty) -> Unit) {
+    class OnClickListener(val clickListener: (nasaProperty:NasaProperty) -> Unit) {
         fun onClick(nasaProperty: NasaProperty) = clickListener(nasaProperty)
     }
 

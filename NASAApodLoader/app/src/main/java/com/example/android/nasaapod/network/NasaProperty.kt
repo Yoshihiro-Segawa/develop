@@ -20,13 +20,19 @@ package com.example.android.nasaapod.network
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
+enum class NasaApiFilter(val value: String) {
+    SHOW_IMAGE("image"),
+    SHOW_VIDEO("video"),
+    SHOW_ALL("all")
+}
+
 /*　この構造体でパースする */
 @Parcelize
 data class NasaProperty(
     var copyright: String?,
     var date: String,
     var explanation: String,
-    var hdurl: String,
+    var hdurl: String?,
     var media_type: String,
     var service_version: String,
     var title: String,
