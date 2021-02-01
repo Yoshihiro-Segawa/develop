@@ -88,7 +88,14 @@ class OverviewViewModel : ViewModel() {
         viewModelScope.launch {
             _status.value = NasaApiStatus.LOADING
             try {
-                _properties.value = NasaApi.retrofitService.getProperties()
+                val startDate="2020-12-01"
+                val dataCount=100
+                when(filter) {
+                    NasaApiFilter.SHOW_DATE -> _properties.value = NasaApi.retrofitService.getDatabyStartDate(startDate)
+                    NasaApiFilter.SHOW_COUNT -> _properties.value = NasaApi.retrofitService.getDatabyCount(dataCount)
+                    else -> _properties.value = NasaApi.retrofitService.getProperties()
+                }
+
                 _status.value = NasaApiStatus.DONE
 
                 //Log.d("JSON","JSON->リストに格納されたクラス ${_properties.value} ")
@@ -101,7 +108,7 @@ class OverviewViewModel : ViewModel() {
     }
 
     fun updateFilter(filter: NasaApiFilter) {
-        getNasaApodProperties(NasaApiFilter.SHOW_ALL)
+        getNasaApodProperties(filter)
     }
 
     fun displayPropertyDetails(nasaProperty: NasaProperty) {

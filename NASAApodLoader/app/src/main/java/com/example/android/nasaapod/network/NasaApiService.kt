@@ -29,7 +29,9 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 enum class NasaApiFilter(val value: String) {
     SHOW_IMAGE("&media_type=image"),
     SHOW_VIDEO("&media_type=video"),
-    SHOW_ALL("")
+    SHOW_ALL(""),
+    SHOW_DATE("StartDate"),
+    SHOW_COUNT("count")
 }
 
 private const val BASE_URL = "https://api.nasa.gov/planetary/apod/"
@@ -83,14 +85,19 @@ interface NasaApiService {
     fun getProperty(): Call<NasaProperty>?
 
 
-    @GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&start_date=2020-11-15")
-    //@GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&date=2021-01-19")
-    //@GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&count=1")
-    suspend fun getProperties(): List<NasaProperty>?
-    //@GET("?api_key=DEMO_KEY")
-    //@GET("realestate")
-    //@GET("?api_key=DEMO_KEY&feedtype=json&ver=1.0")
-    //@GET("?q=London,uk&APPID=bd2cc82bac421b5e74979f0bc521d9e2")
+    @GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&count=10")
+    suspend fun getProperties(): List<NasaProperty>
+
+    @GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2")
+    suspend fun getDatabyStartDate(@Query("start_date") startDate: String): List<NasaProperty>
+
+    @GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2")
+    suspend fun getDatabyCount(@Query("count") counts: Int): List<NasaProperty>
+
+    @GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2")
+    suspend fun getDatabyStartDateAndCount(@Query("start_date") startDate: String,
+                                           @Query("count") counts: Int): List<NasaProperty>
+
 }
 
 object NasaApi {

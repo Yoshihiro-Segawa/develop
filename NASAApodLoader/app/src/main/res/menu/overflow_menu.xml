@@ -27,4 +27,11 @@
     <item
         android:id="@+id/show_video_menu"
         android:title="@string/show_video" />
+    <item
+        android:id="@+id/show_datequery_menu"
+        android:title="@string/show_datequery" />
+
+    <item
+        android:id="@+id/show_countquery_menu"
+        android:title="@string/show_countquery" />
 </menu>

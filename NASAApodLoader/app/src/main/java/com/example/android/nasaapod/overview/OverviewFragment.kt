@@ -83,6 +83,8 @@ class OverviewFragment : Fragment() {
                 when (item.itemId) {
                     R.id.show_image_menu -> NasaApiFilter.SHOW_IMAGE
                     R.id.show_video_menu -> NasaApiFilter.SHOW_VIDEO
+                    R.id.show_datequery_menu -> NasaApiFilter.SHOW_DATE
+                    R.id.show_countquery_menu -> NasaApiFilter.SHOW_COUNT
                     else -> NasaApiFilter.SHOW_ALL
                 }
         )
