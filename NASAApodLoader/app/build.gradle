@@ -95,5 +95,6 @@ dependencies {
     // optional - Test helpers
     testImplementation "androidx.room:room-testing:$room_version"
 
-
+    // for swiperefresh
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02"
 }

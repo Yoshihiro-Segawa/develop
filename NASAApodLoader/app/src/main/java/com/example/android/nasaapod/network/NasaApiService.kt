@@ -80,13 +80,13 @@ interface NasaApiService {
 
     @GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&date=2021-01-19")
     //@GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&count=1")
-    fun getProperty(): Call<NasaProperty>?
+    fun getProperty(): Call<NasaProperty>
 
 
-    @GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&start_date=2020-11-15")
+    @GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&count=50")
     //@GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&date=2021-01-19")
     //@GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&count=1")
-    suspend fun getProperties(): List<NasaProperty>?
+    suspend fun getProperties(): List<NasaProperty>
     //@GET("?api_key=DEMO_KEY")
     //@GET("realestate")
     //@GET("?api_key=DEMO_KEY&feedtype=json&ver=1.0")
