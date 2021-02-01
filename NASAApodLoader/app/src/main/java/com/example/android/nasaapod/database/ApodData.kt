@@ -6,9 +6,9 @@ package com.example.android.nasaapod.database
 //
 //@Entity(tableName = "nasa_apod_content_table")
 //data class ApodList {
-//    var date: String?,
-//    @PrimaryKey(autoGenerate = true)
 //    var copyright: String?,
+//    @PrimaryKey(autoGenerate = true)
+//    var date: String?,
 //    var explanation: String,
 //    var hdurl: String?,
 //    var media_type: String,

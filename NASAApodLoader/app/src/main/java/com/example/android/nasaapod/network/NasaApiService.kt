@@ -82,8 +82,7 @@ interface NasaApiService {
 
     @GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&date=2021-01-19")
     //@GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&count=1")
-    fun getProperty(): Call<NasaProperty>?
-
+    fun getProperty(): Call<NasaProperty>
 
     @GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2&count=10")
     suspend fun getProperties(): List<NasaProperty>

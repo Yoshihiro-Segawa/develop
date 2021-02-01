@@ -18,19 +18,24 @@
 package com.example.android.nasaapod.overview
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.android.nasaapod.R
 import com.example.android.nasaapod.databinding.FragmentOverviewBinding
 import com.example.android.nasaapod.network.NasaApiFilter
+import com.example.android.nasaapod.overview.OverviewViewModel
 
 /**
  * This fragment shows the the status of the Mars real-estate web services transaction.
  */
 class OverviewFragment : Fragment() {
+    lateinit var swipeRefreshLayout: SwipeRefreshLayout
 
     /**
      * Lazily initialize our [OverviewViewModel].
@@ -53,6 +58,8 @@ class OverviewFragment : Fragment() {
         // Giving the binding access to the OverviewViewModel
         binding.viewModel = viewModel
 
+        swipeRefreshLayout = binding.root.findViewById(R.id.swipe)
+
         binding.photosGrid.adapter = PhotoGridAdapter(PhotoGridAdapter.OnClickListener {
             viewModel.displayPropertyDetails(it)
         })
@@ -64,6 +71,13 @@ class OverviewFragment : Fragment() {
                 viewModel.displayPropertyDetailsComplete()
             }
         })
+
+        swipeRefreshLayout.setOnRefreshListener {
+            viewModel.updateFilter(NasaApiFilter.SHOW_ALL)
+            Handler().postDelayed(Runnable {
+                swipeRefreshLayout.isRefreshing = false
+            }, 4000)
+        }
 
         setHasOptionsMenu(true)
         return binding.root
