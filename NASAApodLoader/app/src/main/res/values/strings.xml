@@ -27,4 +27,6 @@
     <string name="display_type">For %s</string>
     <string name="display_price_monthly_rental">$%,.0f/month</string>
     <string name="display_price">$%,.0f</string>
+    <string name="submit">submit</string>
+    <string name="input_image_number_1_400">Input image number (1-400)</string>
 </resources>

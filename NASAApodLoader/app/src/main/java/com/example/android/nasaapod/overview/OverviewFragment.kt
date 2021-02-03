@@ -17,19 +17,21 @@
 
 package com.example.android.nasaapod.overview
 
+import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.view.*
+import android.view.inputmethod.InputMethodManager
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.android.nasaapod.R
 import com.example.android.nasaapod.databinding.FragmentOverviewBinding
 import com.example.android.nasaapod.network.NasaApiFilter
-import com.example.android.nasaapod.overview.OverviewViewModel
 
 /**
  * This fragment shows the the status of the Mars real-estate web services transaction.
@@ -72,6 +74,8 @@ class OverviewFragment : Fragment() {
             }
         })
 
+        viewModel.viewModelScope
+
         swipeRefreshLayout.setOnRefreshListener {
             viewModel.updateFilter(NasaApiFilter.SHOW_ALL)
             Handler().postDelayed(Runnable {
@@ -79,8 +83,24 @@ class OverviewFragment : Fragment() {
             }, 4000)
         }
 
+        val observer = Observer<String>() {
+            // ここが空っぽで良いのもリアルタイム性と関係あり？
+        }
+
+        viewModel.viewcount.observe(this, observer)
+        // viewModelとobserverの紐付けはなくても、本用途では問題なく動く模様
+        // おそらくリアルタイム性がないから（ボタンで読み込み）だと思われる
+
         setHasOptionsMenu(true)
         return binding.root
+    }
+
+    fun hideKeyboard() {
+        val view = activity!!.currentFocus
+        if (view != null) {
+            val imm = activity!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+        }
     }
 
     /**

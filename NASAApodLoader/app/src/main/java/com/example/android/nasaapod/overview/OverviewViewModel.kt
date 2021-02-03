@@ -17,8 +17,9 @@
 
 package com.example.android.nasaapod.overview
 
-import android.telecom.Call
-import android.util.Log
+import android.content.Context
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -26,11 +27,9 @@ import androidx.lifecycle.viewModelScope
 import com.example.android.nasaapod.network.NasaApi
 import com.example.android.nasaapod.network.NasaApiFilter
 import com.example.android.nasaapod.network.NasaProperty
-import com.squareup.moshi.JsonAdapter
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.Types
 import kotlinx.coroutines.launch
-import java.lang.Exception
+import android.view.inputmethod.InputMethodManager
+import androidx.core.content.ContextCompat.getSystemService
 
 enum class NasaApiStatus { LOADING, ERROR, DONE }
 
@@ -55,32 +54,16 @@ class OverviewViewModel : ViewModel() {
     val navigateToSelectProperty: LiveData<NasaProperty>
         get() = _navigateToSelectProperty
 
+    var viewcount = MutableLiveData<String>()
+
     /**
      * Call getMarsRealEstateProperties() on init so we can display status immediately.
      */
     init {
-        //getNasaApodProperty()
+        viewcount.value = "20"
         getNasaApodProperties(NasaApiFilter.SHOW_ALL)
     }
 
-    /**
-     * Sets the value of the status LiveData to the Mars API status.
-     */
-    /*
-    private fun getNasaApodProperty() {
-        NasaApi.retrofitService.getProperty()?.enqueue(
-                object: Callback<NasaProperty> {
-                    override fun onResponse(call: Call<Array<NasaProperty>>?, response: Response<Array<NasaProperty>>) {
-                        _response.value = response.body()
-                    }
-
-                    override fun onFailure(call: Call<NasaProperty>, t: Throwable) {
-                        _response.value = "Failure: " + t.message
-                        Log.println(3, "err", "message")
-                    }
-                })
-    }
-     */
 
     /**
      * Sets the value of the status LiveData to the Mars API status.
@@ -90,7 +73,7 @@ class OverviewViewModel : ViewModel() {
             _status.value = NasaApiStatus.LOADING
             try {
                 val startDate="2020-12-01"
-                val dataCount=100
+                val dataCount=(viewcount.value!!).toInt()
                 when(filter) {
                     NasaApiFilter.SHOW_DATE -> _properties.value = NasaApi.retrofitService.getDatabyStartDate(startDate)
                     NasaApiFilter.SHOW_COUNT -> _properties.value = NasaApi.retrofitService.getDatabyCount(dataCount)
@@ -105,8 +88,18 @@ class OverviewViewModel : ViewModel() {
 
             }
         }
-
     }
+
+//    override fun hideKeyboard() {
+//        super.hideKeyboard()
+//    }
+
+    fun inputCountNumberByUI() {
+        //hideKeyboard()
+        updateFilter(NasaApiFilter.SHOW_COUNT)
+    }
+
+
 
     fun updateFilter(filter: NasaApiFilter) {
         getNasaApodProperties(filter)

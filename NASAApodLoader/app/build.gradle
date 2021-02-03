@@ -30,6 +30,9 @@ android {
         versionCode 1
         versionName "1.0"
     }
+    dataBinding {
+        enabled = true
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -97,4 +100,12 @@ dependencies {
 
     // for swiperefresh
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02"
+
+    // ViewModel and LiveData
+    implementation "android.arch.lifecycle:extensions:1.1.0"
+
+    kapt "com.android.databinding:compiler:3.0.1"
+}
+kapt {
+    generateStubs = true
 }
