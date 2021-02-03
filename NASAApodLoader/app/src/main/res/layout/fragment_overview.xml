@@ -22,6 +22,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="android.view.View"/>
         <variable
             name="viewModel"
             type="com.example.android.nasaapod.overview.OverviewViewModel" />
@@ -40,6 +41,19 @@
             android:hint="@string/input_image_number_1_400"
             android:inputType="number"
             android:text="@={viewModel.viewcount}"
+            android:visibility="@{viewModel.iscountfilter == true ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextDate"
+            android:layout_width="252dp"
+            android:layout_height="45dp"
+            android:ems="10"
+            android:hint="input date YYYY-MM-DD"
+            android:inputType="date"
+            android:text="@={viewModel.startdate}"
+            android:visibility="@{viewModel.iscountfilter == false ? View.VISIBLE : View.INVISIBLE}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,6 +63,17 @@
             android:layout_height="38dp"
             android:onClick="@{() -> viewModel.inputCountNumberByUI()}"
             android:text="@string/submit"
+            android:visibility="@{viewModel.iscountfilter == true ? View.VISIBLE : View.GONE}"
+            app:layout_constraintStart_toEndOf="@+id/editTextNumber"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/datebutton"
+            android:layout_width="91dp"
+            android:layout_height="38dp"
+            android:onClick="@{() -> viewModel.inputStartDatebyUI()}"
+            android:text="決定"
+            android:visibility="@{viewModel.iscountfilter == false ? View.VISIBLE : View.GONE}"
             app:layout_constraintStart_toEndOf="@+id/editTextNumber"
             app:layout_constraintTop_toTopOf="parent" />
 

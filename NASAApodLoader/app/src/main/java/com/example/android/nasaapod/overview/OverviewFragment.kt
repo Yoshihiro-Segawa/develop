@@ -87,7 +87,7 @@ class OverviewFragment : Fragment() {
             // ここが空っぽで良いのもリアルタイム性と関係あり？
         }
 
-        viewModel.viewcount.observe(this, observer)
+        //viewModel.viewcount.observe(this, observer)
         // viewModelとobserverの紐付けはなくても、本用途では問題なく動く模様
         // おそらくリアルタイム性がないから（ボタンで読み込み）だと思われる
 

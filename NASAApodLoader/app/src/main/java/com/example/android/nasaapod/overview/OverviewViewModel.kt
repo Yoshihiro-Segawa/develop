@@ -25,6 +25,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.android.nasaapod.network.NasaApi
+import com.example.android.nasaapod.network.NasaApiService
 import com.example.android.nasaapod.network.NasaApiFilter
 import com.example.android.nasaapod.network.NasaProperty
 import kotlinx.coroutines.launch
@@ -50,34 +51,47 @@ class OverviewViewModel : ViewModel() {
     val properties: LiveData<List<NasaProperty>>
         get() = _properties
 
+    // フィルターの状態を記憶する内部可変データ
+    private val _iscountfilter = MutableLiveData<Boolean>()
+
+    // フィルターの状態を外部に公開する非可変データ
+    val iscountfilter: LiveData<Boolean>
+        get() = _iscountfilter
+
     private val _navigateToSelectProperty = MutableLiveData<NasaProperty>()
     val navigateToSelectProperty: LiveData<NasaProperty>
         get() = _navigateToSelectProperty
 
     var viewcount = MutableLiveData<String>()
 
+    var startdate = MutableLiveData<String>()
+
+
+
     /**
      * Call getMarsRealEstateProperties() on init so we can display status immediately.
      */
     init {
         viewcount.value = "20"
-        getNasaApodProperties(NasaApiFilter.SHOW_ALL)
+        startdate.value = "2021-02-01"
+        _iscountfilter.value = false
+        getNasaApodProperties()
     }
 
 
     /**
      * Sets the value of the status LiveData to the Mars API status.
      */
-    private fun getNasaApodProperties(filter: NasaApiFilter) {
+    private fun getNasaApodProperties() {
         viewModelScope.launch {
             _status.value = NasaApiStatus.LOADING
             try {
-                val startDate="2020-12-01"
-                val dataCount=(viewcount.value!!).toInt()
-                when(filter) {
-                    NasaApiFilter.SHOW_DATE -> _properties.value = NasaApi.retrofitService.getDatabyStartDate(startDate)
-                    NasaApiFilter.SHOW_COUNT -> _properties.value = NasaApi.retrofitService.getDatabyCount(dataCount)
-                    else -> _properties.value = NasaApi.retrofitService.getProperties()
+                if (_iscountfilter.value == true) {
+                    val dataCount=(viewcount.value!!).toInt()
+                    _properties.value = NasaApi.retrofitService.getDatabyCount(dataCount)
+                } else {
+                    val startDate=(startdate.value!!).toString()
+                    _properties.value = NasaApi.retrofitService.getDatabyStartDate(startDate)
                 }
 
                 _status.value = NasaApiStatus.DONE
@@ -99,10 +113,16 @@ class OverviewViewModel : ViewModel() {
         updateFilter(NasaApiFilter.SHOW_COUNT)
     }
 
-
+    fun inputStartDatebyUI() {
+        updateFilter(NasaApiFilter.SHOW_DATE)
+    }
 
     fun updateFilter(filter: NasaApiFilter) {
-        getNasaApodProperties(filter)
+        when(filter) {
+            NasaApiFilter.SHOW_COUNT -> _iscountfilter.value = true
+            NasaApiFilter.SHOW_DATE  -> _iscountfilter.value = false
+        }
+        getNasaApodProperties()
     }
 
     fun displayPropertyDetails(nasaProperty: NasaProperty) {
