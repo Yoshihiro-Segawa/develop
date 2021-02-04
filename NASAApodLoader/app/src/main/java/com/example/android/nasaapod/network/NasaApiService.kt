@@ -90,6 +90,10 @@ interface NasaApiService {
     suspend fun getDatabyStartDate(@Query("start_date") startDate: String): List<NasaProperty>
 
     @GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2")
+    suspend fun getDatabyStartEndDate(@Query("start_date") startDate: String,
+                                      @Query("end_date")   endDate:   String): List<NasaProperty>
+
+    @GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2")
     suspend fun getDatabyCount(@Query("count") counts: Int): List<NasaProperty>
 
     @GET ("?api_key=NWeQMmUrdSDuOBbLewFpkOz0JvZgFzWgZvmsnaa2")

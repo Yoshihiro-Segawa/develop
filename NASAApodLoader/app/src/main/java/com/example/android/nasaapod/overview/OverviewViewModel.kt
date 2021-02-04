@@ -18,19 +18,18 @@
 package com.example.android.nasaapod.overview
 
 import android.content.Context
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.view.inputmethod.InputMethodManager
+import androidx.core.content.ContextCompat.getSystemService
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.android.nasaapod.network.NasaApi
-import com.example.android.nasaapod.network.NasaApiService
 import com.example.android.nasaapod.network.NasaApiFilter
 import com.example.android.nasaapod.network.NasaProperty
 import kotlinx.coroutines.launch
-import android.view.inputmethod.InputMethodManager
-import androidx.core.content.ContextCompat.getSystemService
+
 
 enum class NasaApiStatus { LOADING, ERROR, DONE }
 
@@ -66,7 +65,7 @@ class OverviewViewModel : ViewModel() {
 
     var startdate = MutableLiveData<String>()
 
-
+    var enddate   = MutableLiveData<String>()
 
     /**
      * Call getMarsRealEstateProperties() on init so we can display status immediately.
@@ -74,6 +73,7 @@ class OverviewViewModel : ViewModel() {
     init {
         viewcount.value = "20"
         startdate.value = "2021-02-01"
+        enddate.value = null
         _iscountfilter.value = false
         getNasaApodProperties()
     }
@@ -83,6 +83,7 @@ class OverviewViewModel : ViewModel() {
      * Sets the value of the status LiveData to the Mars API status.
      */
     fun getNasaApodProperties() {
+
         viewModelScope.launch {
             _status.value = NasaApiStatus.LOADING
             try {
@@ -91,7 +92,12 @@ class OverviewViewModel : ViewModel() {
                     _properties.value = NasaApi.retrofitService.getDatabyCount(dataCount)
                 } else {
                     val startDate=(startdate.value!!).toString()
-                    _properties.value = NasaApi.retrofitService.getDatabyStartDate(startDate)
+                    if (enddate.value == null) {
+                        _properties.value = NasaApi.retrofitService.getDatabyStartDate(startDate)
+                    } else {
+                        val endDate =(enddate.value).toString()
+                        _properties.value = NasaApi.retrofitService.getDatabyStartEndDate(startDate, endDate)
+                    }
                 }
 
                 _status.value = NasaApiStatus.DONE
@@ -104,14 +110,16 @@ class OverviewViewModel : ViewModel() {
         }
     }
 
-//    override fun hideKeyboard() {
-//        super.hideKeyboard()
-//    }
+    fun updateApodView() {
+        getNasaApodProperties()
+        //OverviewFragment().hideKeyboard()
+
+    }
 
     fun updateFilter(filter: NasaApiFilter) {
         when(filter) {
             NasaApiFilter.SHOW_COUNT -> _iscountfilter.value = true
-            NasaApiFilter.SHOW_DATE  -> _iscountfilter.value = false
+            NasaApiFilter.SHOW_DATE -> _iscountfilter.value = false
         }
     }
 

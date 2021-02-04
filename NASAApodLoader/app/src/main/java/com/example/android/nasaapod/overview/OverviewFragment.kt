@@ -54,6 +54,11 @@ class OverviewFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         val binding = FragmentOverviewBinding.inflate(inflater)
 
+//        val view = activity!!.currentFocus
+//        if (view != null) {
+//            val imm = activity!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+//            imm.hideSoftInputFromWindow(view.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
+//        }
         // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment
         binding.lifecycleOwner = this
 
@@ -83,24 +88,19 @@ class OverviewFragment : Fragment() {
             }, 4000)
         }
 
+
         val observer = Observer<String>() {
+
+
             // ここが空っぽで良いのもリアルタイム性と関係あり？
         }
-
         //viewModel.viewcount.observe(this, observer)
         // viewModelとobserverの紐付けはなくても、本用途では問題なく動く模様
         // おそらくリアルタイム性がないから（ボタンで読み込み）だと思われる
 
+
         setHasOptionsMenu(true)
         return binding.root
-    }
-
-    fun hideKeyboard() {
-        val view = activity!!.currentFocus
-        if (view != null) {
-            val imm = activity!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            imm.hideSoftInputFromWindow(view.windowToken, 0)
-        }
     }
 
     /**
@@ -122,4 +122,19 @@ class OverviewFragment : Fragment() {
         )
         return true
     }
+
+    fun View.hideKeyboard() {
+        val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(windowToken, 0)
+    }
+
+    fun hideKeyboard() {
+        val view = activity!!.currentFocus
+        if (view != null) {
+            val imm = activity!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
+        }
+    }
+
+
 }

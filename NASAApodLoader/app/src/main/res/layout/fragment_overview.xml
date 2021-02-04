@@ -47,21 +47,33 @@
 
         <EditText
             android:id="@+id/editTextDate"
-            android:layout_width="252dp"
+            android:layout_width="126dp"
             android:layout_height="45dp"
             android:ems="10"
-            android:hint="input date YYYY-MM-DD"
+            android:hint="start date YYYY-MM-DD"
             android:inputType="date"
             android:text="@={viewModel.startdate}"
             android:visibility="@{viewModel.iscountfilter == false ? View.VISIBLE : View.INVISIBLE}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <EditText
+            android:id="@+id/editTextDate2"
+            android:layout_width="126dp"
+            android:layout_height="45dp"
+            android:ems="10"
+            android:hint="end date YYYY-MM-DD"
+            android:inputType="date"
+            android:text="@={viewModel.enddate}"
+            android:visibility="@{viewModel.iscountfilter == false ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintStart_toEndOf="@+id/editTextDate"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <Button
             android:id="@+id/button"
             android:layout_width="91dp"
             android:layout_height="38dp"
-            android:onClick="@{() -> viewModel.getNasaApodProperties()}"
+            android:onClick="@{() -> viewModel.updateApodView()}"
             android:text="@string/submit"
             android:visibility="visible"
             app:layout_constraintStart_toEndOf="@+id/editTextNumber"
