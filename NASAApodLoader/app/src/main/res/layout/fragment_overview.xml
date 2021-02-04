@@ -61,19 +61,9 @@
             android:id="@+id/button"
             android:layout_width="91dp"
             android:layout_height="38dp"
-            android:onClick="@{() -> viewModel.inputCountNumberByUI()}"
+            android:onClick="@{() -> viewModel.getNasaApodProperties()}"
             android:text="@string/submit"
-            android:visibility="@{viewModel.iscountfilter == true ? View.VISIBLE : View.GONE}"
-            app:layout_constraintStart_toEndOf="@+id/editTextNumber"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/datebutton"
-            android:layout_width="91dp"
-            android:layout_height="38dp"
-            android:onClick="@{() -> viewModel.inputStartDatebyUI()}"
-            android:text="決定"
-            android:visibility="@{viewModel.iscountfilter == false ? View.VISIBLE : View.GONE}"
+            android:visibility="visible"
             app:layout_constraintStart_toEndOf="@+id/editTextNumber"
             app:layout_constraintTop_toTopOf="parent" />
 

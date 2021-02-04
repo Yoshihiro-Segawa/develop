@@ -82,7 +82,7 @@ class OverviewViewModel : ViewModel() {
     /**
      * Sets the value of the status LiveData to the Mars API status.
      */
-    private fun getNasaApodProperties() {
+    fun getNasaApodProperties() {
         viewModelScope.launch {
             _status.value = NasaApiStatus.LOADING
             try {
@@ -108,21 +108,11 @@ class OverviewViewModel : ViewModel() {
 //        super.hideKeyboard()
 //    }
 
-    fun inputCountNumberByUI() {
-        //hideKeyboard()
-        updateFilter(NasaApiFilter.SHOW_COUNT)
-    }
-
-    fun inputStartDatebyUI() {
-        updateFilter(NasaApiFilter.SHOW_DATE)
-    }
-
     fun updateFilter(filter: NasaApiFilter) {
         when(filter) {
             NasaApiFilter.SHOW_COUNT -> _iscountfilter.value = true
             NasaApiFilter.SHOW_DATE  -> _iscountfilter.value = false
         }
-        getNasaApodProperties()
     }
 
     fun displayPropertyDetails(nasaProperty: NasaProperty) {

@@ -20,7 +20,7 @@
     <string name="show_all">Show all</string>
     <string name="show_image">Image</string>
     <string name="show_video">Video</string>
-    <string name="show_datequery">StartDate Query</string>
+    <string name="show_datequery">Date Query</string>
     <string name="show_countquery">Count Query</string>
     <string name="type_rent">Rent</string>
     <string name="type_sale">Sale</string>

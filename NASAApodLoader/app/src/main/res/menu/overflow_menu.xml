@@ -19,15 +19,6 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/show_all_menu"
-        android:title="@string/show_all" />
-    <item
-        android:id="@+id/show_image_menu"
-        android:title="@string/show_image" />
-    <item
-        android:id="@+id/show_video_menu"
-        android:title="@string/show_video" />
-    <item
         android:id="@+id/show_datequery_menu"
         android:title="@string/show_datequery" />
 
