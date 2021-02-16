@@ -1,0 +1,30 @@
+Summary
+
+動的なFragmentの追加
+
+・FragmentをActivityへ動的に追加する時、ActivityのインスタンスのようにFragmentを表す最も良い方法は
+　Fragmentのnewinstance()ファクトリーメソッドでインスタンスを生成する事である
+・newinstance()メソッドはBundleのセットとFragmentのために構築された引数群を提供するためのsetArguments(Bundle)の使用が可能である
+・新しいインスタンスを生成するためにActivityからnewinstance()メソッドを呼び出し、その後このBundleのためにあなたが必要とする
+　特定のデータをパスせよ
+
+Fragmentのライフサイクル
+
+・onAttach()はFragmentが初めてActivityに紐付けられた時にコールされる。onAttach()は例えばリスナーのように、Fragmentに必要不可欠な
+　コンポーネントの初期化に使うこと
+・onCraete()はFragmentが生成された時にコールされる。onCreate()はFragmentが停止したり止まったりして、その後復帰した時に
+　あなたが得たいを考えるFragmentのコンポーネントの初期化のために使うこと
+・onCreateView()はFragmentのUIが初めて表示される時にコールされる。FragmentのためのUIを表示するために、このメソッドから
+　Fragmentレイアウトのroot Viewをリターンしなければならない。もし、FragmentがUIを供給しないのであればnullを返してもよい
+・Fragmentがactiveかresumedの状態にある時、getActivity()でホストのinstanceからアクセス可能であり、また容易にAcitivityレイアウト内に
+　あるViewを探すようなタスクを実行することができる
+
+ホストAcitivityからFragmentへの通信は、以下のようにBundleを使う
+
+・setArgment(Bundle)：Fragmentに必要な引数構成を提供する。この引数群はFragmentのライフサイクルに渡って取得できる
+・getArgmument：もし全てを指定した場合、setArgument(Bundle)に提供される引数群が戻る
+
+FragmentがホストAcitivityへ通信したい場合には、Fragment側でinterfaceを宣言し、それをAcitivityに実装する必要がある
+
+・Fragment内のinterfaceがホストAcitivity通信するコールバックメソッドを定義する
+・ホストAcitivityはコールバックメソッドを実装する

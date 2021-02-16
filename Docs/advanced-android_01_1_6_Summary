@@ -1,0 +1,28 @@
+Summary
+
+・FragmentクラスはActivityコールバックと同様にコールバックメソッドを使用する。例えば、onCreateView()のような。そして
+　それはレイアウトリソースのfragment_simpleからFragument UIを生成するためにLayoutInflatereオブジェクトを供給する
+　ということでもある
+
+・FragmentをActivityにスタティックに加えることで、そのFragmentはActivityのライフサイクル全体に渡って表示されることに
+　なる。そしてそのときFragmentは<Fragment>タグを使ってActivitynoためのレイアウトファイルの内部で宣言される
+
+・FragmentをActivityにダイナミックに加えることで、例えばFrameLayoutのようなActivityのためのレイアウトファイルの内部で
+　ViewGroupを特定することで、ActivityがFragmentを追加したり、リプレースしたり削除したりしうるものとなる
+
+・FragmentをActivityにダイナミックに追加する時、fragmentを生成する最も良い方法はFragmentそれ自身の中で
+　newinstance()メソッドでインスタンスを生成する事である。
+　そして新しいインスタンスを生成するために、Activityからnewinstance()メソッドを呼び出せ
+
+・FragmentManagerのインスタンスを取得するために、Support Libraryを使っているFragmentクラスをインスタンス化する
+　getSupportFragmentManager()を使え。このSupport LibraryはあなたのアプリがAndroid1.6と同等の低さのシステムバージョンで
+　稼働するデバイスでも動作可能にしてくれる
+
+・一連のFragmentトランザクションを開始するには、FragmentTransaction上のbeginTransaction()を呼び出せ
+
+FragmentManagerを使うことで、あなたのコードはアプリケーションの動作中、FragmentTransactionメソッドを使って
+以下のFragmentトランザクションを実行できるようになる。
+・add()を使ったFragmentの追加
+・remove()を使ったFragmentの削除
+・replace()を使ったあるFragmentから他のFragmentへのリプレース
+
