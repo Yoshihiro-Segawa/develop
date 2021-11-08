@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>423102989236-d7ugpjvd4qjpb71u45edadugp7a539pu.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.423102989236-d7ugpjvd4qjpb71u45edadugp7a539pu</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>423102989236-9napeksn0jnlafa6n3i1ilnilm7krl3r.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBXGxR_jnFZBqR3Dl5q1BJEelOv_Gexsb8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>423102989236</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.brightechno.app.bacchus</string>
+	<key>PROJECT_ID</key>
+	<string>bacchus-f89f8</string>
+	<key>STORAGE_BUCKET</key>
+	<string>bacchus-f89f8.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:423102989236:ios:fa685a01a86667c161e8e1</string>
+</dict>
+</plist>

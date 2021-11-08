@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "423102989236",
+    "project_id": "bacchus-f89f8",
+    "storage_bucket": "bacchus-f89f8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:423102989236:android:4e4c7a5e4824decd61e8e1",
+        "android_client_info": {
+          "package_name": "com.brightechno.app.bacchus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "423102989236-9napeksn0jnlafa6n3i1ilnilm7krl3r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.brightechno.app.bacchus",
+            "certificate_hash": "64e50161df1491fcc32eb54e4286b8b94e155dbe"
+          }
+        },
+        {
+          "client_id": "423102989236-en2h0b6en766qj0f1j0io5fq7i0jkpf8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.brightechno.app.bacchus",
+            "certificate_hash": "a4c22113292bfe0eba78f6f24da1045440330d87"
+          }
+        },
+        {
+          "client_id": "423102989236-k7imudtmagff5kj40kf4dtg88vuc5uni.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCH_lleKKhNebxFRsh5ZoisZpNeGACeUic"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "423102989236-k7imudtmagff5kj40kf4dtg88vuc5uni.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
