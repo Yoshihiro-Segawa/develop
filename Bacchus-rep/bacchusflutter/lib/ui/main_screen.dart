@@ -365,7 +365,8 @@ class mainScreenState extends State<mainScreen> with RouteAware {
             fontWeight: FontWeight.bold,
           ),
         );
-      } else if (alcAmount >= limitAday.toDouble() * 0.8) {
+      } else if (alcAmount >= limitAday.toDouble() * 0.8 ||
+          alcAmountAvg >= limitAweekAvg * 0.8) {
         return Text(
           '今日はこの辺にしておきましょう',
           style: TextStyle(
