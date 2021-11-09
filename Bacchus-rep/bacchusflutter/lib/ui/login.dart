@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'dart:math';
 
 import 'package:crypto/crypto.dart';
@@ -58,24 +59,25 @@ class loginScreenState extends State<loginScreen> {
             SizedBox(
               height: 10,
             ),
-            SignInButton(
-              Buttons.AppleDark,
-              onPressed: () async {
-                try {
-                  await signInWithApple();
-                  setState(() {
-                    isUserLogin = _auth.currentUser?.uid;
-                  });
-                  if (_auth.currentUser?.uid != null) {
-                    Navigator.pushNamed(context, '/personal');
+            if (Platform.isIOS)
+              SignInButton(
+                Buttons.AppleDark,
+                onPressed: () async {
+                  try {
+                    await signInWithApple();
+                    setState(() {
+                      isUserLogin = _auth.currentUser?.uid;
+                    });
+                    if (_auth.currentUser?.uid != null) {
+                      Navigator.pushNamed(context, '/personal');
+                    }
+                  } catch (e) {
+                    setState(() {
+                      infoText = "ログイン失敗:${e.toString()}";
+                    });
                   }
-                } catch (e) {
-                  setState(() {
-                    infoText = "ログイン失敗:${e.toString()}";
-                  });
-                }
-              },
-            ),
+                },
+              ),
             SizedBox(
               height: 40,
             ),
