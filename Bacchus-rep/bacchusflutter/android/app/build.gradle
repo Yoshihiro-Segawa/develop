@@ -47,8 +47,8 @@ android {
         applicationId "com.brightechno.app.bacchus"
         minSdkVersion 19
         targetSdkVersion 30
-        versionCode flutterVersionCode.toInteger()
-        versionName flutterVersionName
+        versionCode 30
+        versionName "v0.0.1"
         multiDexEnabled true
     }
 

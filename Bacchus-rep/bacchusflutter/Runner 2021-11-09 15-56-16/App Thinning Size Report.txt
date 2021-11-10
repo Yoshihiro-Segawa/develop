@@ -1,0 +1,155 @@
+
+App Thinning Size Report for All Variants of Runner
+
+Variant: bacchus-0152D2BF-E565-40F8-BACA-C23B0FDB02CE.ipa
+Supported variant descriptors: [device: iPhone12,1, os-version: 13.0], [device: iPhone12,1, os-version: 14.0], [device: iPhone11,8, os-version: 13.0], and [device: iPhone11,8, os-version: 14.0]
+App + On Demand Resources size: 12.4 MB compressed, 36.8 MB uncompressed
+App size: 12.4 MB compressed, 36.8 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: bacchus-09BDCF45-3A33-4E3A-8159-461C67454161.ipa
+Supported variant descriptors: [device: iPhone8,4, os-version: 14.0], [device: iPod9,1, os-version: 14.0], [device: iPhone8,1, os-version: 13.0], [device: iPod9,1, os-version: 13.0], [device: iPhone8,1, os-version: 14.0], and [device: iPhone8,4, os-version: 13.0]
+App + On Demand Resources size: 12.4 MB compressed, 36.8 MB uncompressed
+App size: 12.4 MB compressed, 36.8 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: bacchus-0CD9D6AD-12D5-432E-8645-C198575E2415.ipa
+Supported variant descriptors: [device: iPhone10,3, os-version: 12.2], [device: iPhone10,6, os-version: 12.2], [device: iPhone11,2, os-version: 12.2], [device: iPhone9,4, os-version: 12.2], [device: iPhone10,2, os-version: 12.2], [device: iPhone11,4, os-version: 12.2], [device: iPhone11,6, os-version: 12.2], [device: iPhone10,5, os-version: 12.2], and [device: iPhone9,2, os-version: 12.2]
+App + On Demand Resources size: 12.4 MB compressed, 36.8 MB uncompressed
+App size: 12.4 MB compressed, 36.8 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: bacchus-1432AAB9-814A-40D3-A30B-D6026E00508E.ipa
+Supported variant descriptors: [device: iPhone10,1, os-version: 12.0], [device: iPhone10,4, os-version: 12.0], [device: iPhone9,1, os-version: 12.0], and [device: iPhone9,3, os-version: 12.0]
+App + On Demand Resources size: 14.9 MB compressed, 44.4 MB uncompressed
+App size: 14.9 MB compressed, 44.4 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: bacchus-22473312-800D-453F-81C2-F2689DDAC578.ipa
+Supported variant descriptors: [device: iPhone9,4, os-version: 12.0], [device: iPhone11,2, os-version: 12.0], [device: iPhone10,3, os-version: 12.0], [device: iPhone9,2, os-version: 12.0], [device: iPhone10,5, os-version: 12.0], [device: iPhone10,6, os-version: 12.0], [device: iPhone11,4, os-version: 12.0], [device: iPhone11,6, os-version: 12.0], and [device: iPhone10,2, os-version: 12.0]
+App + On Demand Resources size: 14.9 MB compressed, 44.4 MB uncompressed
+App size: 14.9 MB compressed, 44.4 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: bacchus-32E4EF9E-B6B8-4824-A8E1-88ADB075E7F5.ipa
+Supported variant descriptors: [device: iPad5,3, os-version: 12.2], [device: iPad4,2, os-version: 12.2], [device: iPad4,4, os-version: 12.2], [device: iPad4,9, os-version: 12.2], [device: iPad5,1, os-version: 12.2], [device: iPad4,5, os-version: 12.2], [device: iPad4,3, os-version: 12.2], [device: iPad7,5, os-version: 12.2], [device: iPad4,1, os-version: 12.2], [device: iPad4,7, os-version: 12.2], [device: iPad5,4, os-version: 12.2], [device: iPad6,11, os-version: 12.2], [device: iPad6,8, os-version: 12.2], [device: iPad6,7, os-version: 12.2], [device: iPad4,8, os-version: 12.2], [device: iPad7,6, os-version: 12.2], [device: iPad6,12, os-version: 12.2], [device: iPad4,6, os-version: 12.2], and [device: iPad5,2, os-version: 12.2]
+App + On Demand Resources size: 12.4 MB compressed, 36.8 MB uncompressed
+App size: 12.4 MB compressed, 36.8 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: bacchus-40654625-2E57-4A82-94EB-C61AE3471BC4.ipa
+Supported variant descriptors: [device: iPad7,3, os-version: 12.2], [device: iPad8,1, os-version: 12.2], [device: iPad7,2, os-version: 12.2], [device: iPad8,4, os-version: 12.2], [device: iPad8,5, os-version: 12.2], [device: iPad6,4, os-version: 12.2], [device: iPad6,3, os-version: 12.2], [device: iPad11,3, os-version: 12.2], [device: iPad7,4, os-version: 12.2], [device: iPad8,3, os-version: 12.2], [device: iPad8,6, os-version: 12.2], [device: iPad7,1, os-version: 12.2], [device: iPad11,1, os-version: 12.2], [device: iPad11,2, os-version: 12.2], [device: iPad8,8, os-version: 12.2], [device: iPad11,4, os-version: 12.2], [device: iPad8,7, os-version: 12.2], and [device: iPad8,2, os-version: 12.2]
+App + On Demand Resources size: 12.4 MB compressed, 36.8 MB uncompressed
+App size: 12.4 MB compressed, 36.8 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: bacchus-4621E958-040D-40DE-B5E4-D88A5BA15AA5.ipa
+Supported variant descriptors: [device: iPhone7,1, os-version: 12.2] and [device: iPhone8,2, os-version: 12.2]
+App + On Demand Resources size: 12.4 MB compressed, 36.8 MB uncompressed
+App size: 12.4 MB compressed, 36.8 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: bacchus-46419290-2818-4707-A37C-0A33C114DAD9.ipa
+Supported variant descriptors: [device: iPad5,4, os-version: 12.0], [device: iPad4,9, os-version: 12.0], [device: iPad5,3, os-version: 12.0], [device: iPad4,2, os-version: 12.0], [device: iPad7,5, os-version: 12.0], [device: iPad6,8, os-version: 12.0], [device: iPad4,8, os-version: 12.0], [device: iPad4,1, os-version: 12.0], [device: iPad4,7, os-version: 12.0], [device: iPad6,7, os-version: 12.0], [device: iPad4,5, os-version: 12.0], [device: iPad6,12, os-version: 12.0], [device: iPad5,1, os-version: 12.0], [device: iPad4,4, os-version: 12.0], [device: iPad6,11, os-version: 12.0], [device: iPad4,3, os-version: 12.0], [device: iPad5,2, os-version: 12.0], [device: iPad7,6, os-version: 12.0], and [device: iPad4,6, os-version: 12.0]
+App + On Demand Resources size: 14.9 MB compressed, 44.4 MB uncompressed
+App size: 14.9 MB compressed, 44.4 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: bacchus-49DBA593-DA47-45A4-9FCD-A8B6E4F87A0C.ipa
+Supported variant descriptors: [device: iPhone9,3, os-version: 14.0], [device: iPhone10,1, os-version: 14.0], [device: iPhone10,4, os-version: 14.0], [device: iPhone10,1, os-version: 13.0], [device: iPhone9,1, os-version: 13.0], [device: iPhone9,3, os-version: 13.0], [device: iPhone12,8, os-version: 14.0], [device: iPhone10,4, os-version: 13.0], [device: iPhone9,1, os-version: 14.0], and [device: iPhone12,8, os-version: 13.0]
+App + On Demand Resources size: 12.4 MB compressed, 36.8 MB uncompressed
+App size: 12.4 MB compressed, 36.8 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: bacchus-72B521BC-83A4-40E4-96E6-A77351198BC0.ipa
+Supported variant descriptors: [device: iPhone11,8, os-version: 12.2]
+App + On Demand Resources size: 12.4 MB compressed, 36.8 MB uncompressed
+App size: 12.4 MB compressed, 36.8 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: bacchus-82E65BEE-B0AF-4DB4-8EBB-42C0C695B269.ipa
+Supported variant descriptors: [device: iPhone8,2, os-version: 13.0] and [device: iPhone8,2, os-version: 14.0]
+App + On Demand Resources size: 12.4 MB compressed, 36.8 MB uncompressed
+App size: 12.4 MB compressed, 36.8 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: bacchus-8319FF68-ED6D-4F3F-8587-D264FF83DA52.ipa
+Supported variant descriptors: [device: iPad8,7, os-version: 12.0], [device: iPad7,2, os-version: 12.0], [device: iPad8,6, os-version: 12.0], [device: iPad8,2, os-version: 12.0], [device: iPad8,4, os-version: 12.0], [device: iPad8,8, os-version: 12.0], [device: iPad6,3, os-version: 12.0], [device: iPad7,1, os-version: 12.0], [device: iPad7,3, os-version: 12.0], [device: iPad7,4, os-version: 12.0], [device: iPad8,1, os-version: 12.0], [device: iPad8,5, os-version: 12.0], [device: iPad6,4, os-version: 12.0], and [device: iPad8,3, os-version: 12.0]
+App + On Demand Resources size: 14.9 MB compressed, 44.4 MB uncompressed
+App size: 14.9 MB compressed, 44.4 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: bacchus-8A710F2D-4B2B-4804-B9EC-2F1D4DD57581.ipa
+Supported variant descriptors: [device: iPhone11,8, os-version: 12.0]
+App + On Demand Resources size: 14.9 MB compressed, 44.4 MB uncompressed
+App size: 14.9 MB compressed, 44.4 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: bacchus-A25E39EA-7A85-4F89-B203-1C36EDCEF932.ipa
+Supported variant descriptors: [device: iPhone7,1, os-version: 12.0] and [device: iPhone8,2, os-version: 12.0]
+App + On Demand Resources size: 14.9 MB compressed, 44.4 MB uncompressed
+App size: 14.9 MB compressed, 44.4 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: bacchus-A6093733-B16A-432A-9817-9F7D60445852.ipa
+Supported variant descriptors: [device: iPhone10,1, os-version: 12.2], [device: iPhone9,1, os-version: 12.2], [device: iPhone10,4, os-version: 12.2], and [device: iPhone9,3, os-version: 12.2]
+App + On Demand Resources size: 12.4 MB compressed, 36.8 MB uncompressed
+App size: 12.4 MB compressed, 36.8 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: bacchus-AB3CC2A0-AB32-45CC-A6E3-265743C5C2DC.ipa
+Supported variant descriptors: [device: iPhone10,6, os-version: 14.0], [device: iPhone11,6, os-version: 14.0], [device: iPhone10,5, os-version: 13.0], [device: iPhone10,6, os-version: 13.0], [device: iPhone9,2, os-version: 13.0], [device: iPhone10,3, os-version: 14.0], [device: iPhone12,5, os-version: 14.0], [device: iPhone12,3, os-version: 13.0], [device: iPhone13,4, os-version: 14.0], [device: iPhone11,4, os-version: 14.0], [device: iPhone9,2, os-version: 14.0], [device: iPhone10,3, os-version: 13.0], [device: iPhone11,2, os-version: 13.0], [device: iPhone11,6, os-version: 13.0], [device: iPhone9,4, os-version: 14.0], [device: iPhone11,2, os-version: 14.0], [device: iPhone12,3, os-version: 14.0], [device: iPhone10,5, os-version: 14.0], [device: iPhone10,2, os-version: 14.0], [device: iPhone10,2, os-version: 13.0], [device: iPhone13,2, os-version: 14.0], [device: iPhone13,3, os-version: 14.0], [device: iPhone11,4, os-version: 13.0], [device: iPhone12,5, os-version: 13.0], [device: iPhone9,4, os-version: 13.0], and [device: iPhone13,1, os-version: 14.0]
+App + On Demand Resources size: 12.4 MB compressed, 36.8 MB uncompressed
+App size: 12.4 MB compressed, 36.8 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: bacchus-B4C4B001-AB1B-4A27-8586-9FE231AAEF72.ipa
+Supported variant descriptors: [device: iPad13,1, os-version: 14.0], [device: iPad8,4, os-version: 13.0], [device: iPad8,10, os-version: 14.0], [device: iPad8,2, os-version: 14.0], [device: iPad8,10, os-version: 13.0], [device: iPad7,2, os-version: 13.0], [device: iPad7,1, os-version: 13.0], [device: iPad7,1, os-version: 14.0], [device: iPad8,3, os-version: 14.0], [device: iPad8,5, os-version: 14.0], [device: iPad8,11, os-version: 14.0], [device: iPad7,4, os-version: 13.0], [device: iPad11,2, os-version: 13.0], [device: iPad6,4, os-version: 14.0], [device: iPad8,7, os-version: 13.0], [device: iPad8,12, os-version: 13.0], [device: iPad13,2, os-version: 14.0], [device: iPad8,11, os-version: 13.0], [device: iPad8,7, os-version: 14.0], [device: iPad11,3, os-version: 13.0], [device: iPad11,4, os-version: 13.0], [device: iPad8,8, os-version: 14.0], [device: iPad6,4, os-version: 13.0], [device: iPad8,12, os-version: 14.0], [device: iPad8,6, os-version: 13.0], [device: iPad7,3, os-version: 14.0], [device: iPad8,2, os-version: 13.0], [device: iPad6,3, os-version: 14.0], [device: iPad11,1, os-version: 13.0], [device: iPad8,3, os-version: 13.0], [device: iPad11,4, os-version: 14.0], [device: iPad8,8, os-version: 13.0], [device: iPad8,6, os-version: 14.0], [device: iPad11,2, os-version: 14.0], [device: iPad7,3, os-version: 13.0], [device: iPad6,3, os-version: 13.0], [device: iPad8,1, os-version: 13.0], [device: iPad8,5, os-version: 13.0], [device: iPad7,4, os-version: 14.0], [device: iPad7,2, os-version: 14.0], [device: iPad11,3, os-version: 14.0], [device: iPad8,9, os-version: 14.0], [device: iPad8,1, os-version: 14.0], [device: iPad8,4, os-version: 14.0], [device: iPad11,1, os-version: 14.0], and [device: iPad8,9, os-version: 13.0]
+App + On Demand Resources size: 12.4 MB compressed, 36.8 MB uncompressed
+App size: 12.4 MB compressed, 36.8 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: bacchus-C2FA30FA-846E-4588-8EFD-9A32DEF208C2.ipa
+Supported variant descriptors: [device: iPhone8,1, os-version: 12.2], [device: iPod7,1, os-version: 12.2], [device: iPhone8,4, os-version: 12.2], [device: iPhone6,2, os-version: 12.2], [device: iPhone7,2, os-version: 12.2], [device: iPhone6,1, os-version: 12.2], and [device: iPod9,1, os-version: 12.2]
+App + On Demand Resources size: 12.4 MB compressed, 36.8 MB uncompressed
+App size: 12.4 MB compressed, 36.8 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: bacchus-CE2AF7D6-A59C-45BA-8D99-0BFB8D4817E4.ipa
+Supported variant descriptors: [device: iPad6,12, os-version: 13.0], [device: iPad6,11, os-version: 14.0], [device: iPad6,7, os-version: 14.0], [device: iPad6,8, os-version: 14.0], [device: iPad6,12, os-version: 14.0], [device: iPad7,12, os-version: 14.0], [device: iPad5,3, os-version: 13.0], [device: iPad7,12, os-version: 13.0], [device: iPad11,6, os-version: 14.0], [device: iPad6,7, os-version: 13.0], [device: iPad5,4, os-version: 13.0], [device: iPad5,1, os-version: 14.0], [device: iPad5,1, os-version: 13.0], [device: iPad11,7, os-version: 14.0], [device: iPad5,4, os-version: 14.0], [device: iPad7,5, os-version: 13.0], [device: iPad6,11, os-version: 13.0], [device: iPad7,5, os-version: 14.0], [device: iPad7,6, os-version: 13.0], [device: iPad7,11, os-version: 13.0], [device: iPad5,3, os-version: 14.0], [device: iPad7,6, os-version: 14.0], [device: iPad5,2, os-version: 14.0], [device: iPad6,8, os-version: 13.0], [device: iPad5,2, os-version: 13.0], and [device: iPad7,11, os-version: 14.0]
+App + On Demand Resources size: 12.4 MB compressed, 36.8 MB uncompressed
+App size: 12.4 MB compressed, 36.8 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: bacchus-D599DCD0-3B89-41FC-B77B-C1E2AA1D2743.ipa
+Supported variant descriptors: [device: iPhone8,1, os-version: 12.0], [device: iPhone8,4, os-version: 12.0], [device: iPod7,1, os-version: 12.0], [device: iPhone6,2, os-version: 12.0], [device: iPhone6,1, os-version: 12.0], and [device: iPhone7,2, os-version: 12.0]
+App + On Demand Resources size: 14.9 MB compressed, 44.4 MB uncompressed
+App size: 14.9 MB compressed, 44.4 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: bacchus.ipa
+Supported variant descriptors: Universal
+App + On Demand Resources size: 14.9 MB compressed, 44.5 MB uncompressed
+App size: 14.9 MB compressed, 44.5 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
