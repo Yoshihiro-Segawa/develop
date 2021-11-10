@@ -3,6 +3,7 @@ import 'package:bacchusflutter/ui/input_drink_scratch.dart';
 import 'package:bacchusflutter/utils/init_preset.dart';
 import 'package:bacchusflutter/utils/shared_date.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -294,6 +295,11 @@ class mainScreenState extends State<mainScreen> with RouteAware {
                   title: Text('ログアウトする'),
                   onTap: () {
                     signOut(context);
+                  }),
+              ListTile(
+                  title: Text('クラッシュする'),
+                  onTap: () {
+                    FirebaseCrashlytics.instance.crash();
                   }),
             ]),
           ),

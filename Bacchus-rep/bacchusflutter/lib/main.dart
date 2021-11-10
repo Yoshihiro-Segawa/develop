@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bacchusflutter/ui/edit_drink.dart';
 import 'package:bacchusflutter/ui/edit_preset.dart';
 import 'package:bacchusflutter/ui/list_screen.dart';
@@ -10,6 +12,7 @@ import 'package:bacchusflutter/ui/webview2.dart';
 import 'package:bacchusflutter/utils/shared_date.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -46,7 +49,7 @@ void main() async {
       onSelectNotification: selectNotification);
 
   Future<void> showDailyAtTime() async {
-    var time = Time(18, 37, 00);
+    var time = Time(17, 00, 00);
     var androidChannelSpecifics = AndroidNotificationDetails(
       'CHANNEL_ID 4',
       'CHANNEL_NAME 4',
@@ -77,7 +80,9 @@ void main() async {
 
   sharedDate.toInvalidDate();
   showDailyAtTime();
-  runApp(MyApp());
+  runZonedGuarded(() {
+    runApp(MyApp());
+  }, FirebaseCrashlytics.instance.recordError);
 }
 
 class MyApp extends StatelessWidget {
